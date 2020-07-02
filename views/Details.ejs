@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Movie Details</title>
+    </head>
+    <body style="margin:0px;">
+
+        <%- include ("partials/Header");-%>
+
+        <div class="container" style="margin-top: auto;">
+            <div class="jumbotron">
+                <h2 style="font-weight: bold;"> <%= title %> </h2>
+                <h3 style="font-weight: lighter"><%= LeadRole %></h3>
+                <h5 style="text-align: justify;font-size:18px;">
+                    <%= Description%>
+                </h5>
+            </div>
+            
+        </div>
+    </body>
+</html>
+<%- include ("partials/Footer"); -%>

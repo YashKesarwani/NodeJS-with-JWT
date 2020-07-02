@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Add Movies</title>
+    </head>
+    <body style="margin: 0px;">
+
+        <%- include ("partials/Header"); -%>
+        <div class="container-fluid" style="margin-top: auto;">
+            <div class="row mt-4">
+                <div class="col-md-4 m-auto">
+                    <h2>Add a movie</h2>
+                    <form action="/AddMovie" method="POST" enctype="multipart/form-data">
+                    <!-- It will load the same page but with POST method and then will send the data in the app.js file -->
+                        <div class="form-group">
+                        <label for="movie">Movie Name</label>
+                        <input type="text" class="form-control" id="movie" name="name" placeholder="Example: Thor: The Dark World">
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Lead Role</label>
+                            <input type="text" class="form-control" id="role" name="role" placeholder="Example: Chris Hemsworth">
+                        </div>
+                        <div class="form-group">
+                            <label for="appear">Appearance as</label>
+                            <input type="text" class="form-control" id="appear" name="appear" placeholder="Example: Thor">
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Description</span>
+                            </div>
+                            <textarea class="form-control" id="desc" name="desc" placeholder="Example: Thor is a Hollywood movie."></textarea>
+                        </div>
+                        <label>Poster Image</label>  
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                            <span class="input-group-text">Upload</span>
+                            </div>
+                            <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="imgFile" name="imgFile" required>
+                            <label class="custom-file-label" for="imgFile">Choose file</label>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label for="imgName">Image</label>
+                            <input type="text" class="form-control" id="imgName" name="imgName" placeholder="Example: Thor.jpg">
+                        </div>   -->
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<%- include ("partials/Footer"); -%>

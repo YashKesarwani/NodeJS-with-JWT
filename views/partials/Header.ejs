@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="/style.css">
+
+<nav class="navbar navbar-expand-md navbar-dark" style="background-color: #333;" >
+    <a class="navbar-brand" href="/" style="color: #4CAF50;">
+            <img src="/images/Icon.jpg" alt="" style="width: 30px; height:30px">
+            Movies Bucket
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="Navbar">
+        
+        <ul class="navbar-nav" id="nav">
+            <li class="nav-item"><a href="/">Home</a></li>
+            <li class="nav-item"><a href="/AddMovie">Add Movie</a></li>
+            <% if(userID!=='undefined') { %>
+            <li class="nav-item"><a href="/users/Logout">Logout</a></li>
+            <% }else{ %>
+            <li class="nav-item"><a href="/users/Login">Login</a></li>
+            <li class="nav-item"><a href="/users/Register">Register</a></li>
+            <% } %>
+            <li class="nav-item"><a href="/About">About Us</a></li>
+            
+        </ul>
+    </div>
+    <script> 
+    (function() {
+        var nav = document.getElementById('nav'),
+            anchor = nav.getElementsByTagName('a'),
+            current = window.location.pathname.split('/');
+            current.shift();
+            current=current.join('/');
+            current=`/${current}`;
+            for (var i = 0; i < anchor.length; i++) {
+            if(anchor[i].pathname == current) {
+                anchor[i].className = "active";
+            }
+        }
+    })();
+    </script>
+</nav>
