@@ -12,7 +12,7 @@ A Node.js website **(Movies Bucket)** with authentication using JSON Web Token. 
 2. Download libraries listed in package.json
 3. Create MongoDB collection.
 4. **Setup the *.env* file.** Change password of the MongoDB, assign secret tokens 
-5. Run *npm start* or *node app.js* on terminal.
+5. Run *npm start* or *node app.js* on terminal to run the website.
 
 ## Built with
 - Visual Studio Code (1.47.2)
