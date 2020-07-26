@@ -1,6 +1,7 @@
 const express=require('express');
 const router=express.Router();
 const mongoose=require('mongoose');
+const verify=require('../config/auth');
 
 const Movie=mongoose.model('Movie');
 
@@ -39,7 +40,7 @@ router.get("/Details/:id",(req,res)=>{
 
 
 
-router.get("/Details/Edit/:id",(req,res)=>{
+router.get("/Details/Edit/:id",verify,(req,res)=>{
     var id=req.params.id;
     Movie.findById(id,(err,data)=>{
         if(err) console.log("Error occurred"+err);
@@ -55,7 +56,7 @@ router.get("/Details/Edit/:id",(req,res)=>{
 });
 
 
-router.get("/Details/Delete/:id",(req,res)=>{
+router.get("/Details/Delete/:id",verify,(req,res)=>{
     var id=req.params.id;
 
     Movie.findByIdAndDelete(id,(err)=>{
@@ -68,11 +69,11 @@ router.get("/Details/Delete/:id",(req,res)=>{
 });
 
 
-router.get("/AddMovie",(req,res)=>{
+router.get("/AddMovie",verify,(req,res)=>{
     res.render("AddMovie");
 });
 
-router.post("/AddMovie",(req,res)=>{
+router.post("/AddMovie",verify,(req,res)=>{
     var data=req.body;
 
     /** Uploading image file and moving it to the desired location
@@ -101,7 +102,7 @@ router.post("/AddMovie",(req,res)=>{
 });
 
 
-router.post("/Update/:id",(req,res)=>{
+router.post("/Update/:id",verify,(req,res)=>{
     var id=req.params.id;
     var data=req.body;
     Movie.findByIdAndUpdate(id,{
